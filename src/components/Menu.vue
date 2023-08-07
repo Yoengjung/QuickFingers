@@ -1,0 +1,106 @@
+<template>
+  <div class="menu">
+    <ul>
+      <li>
+        <span @mouseover="showSubMenu" @mouseout="hideSubMenu">타자연습</span>
+        <div
+          class="submenu"
+          v-show="isSubMenuVisible"
+          @mouseover="showSubMenu"
+          @mouseout="hideSubMenu"
+        >
+          <router-link to="word__practice">단어</router-link>
+          <router-link to="sentence__practice">문장</router-link>
+          <router-link to="paragraph__practice">문단</router-link>
+        </div>
+      </li>
+      <li>
+        <span @mouseover="showSubMenu" @mouseout="hideSubMenu">랭킹</span>
+        <div
+          class="submenu"
+          v-show="isSubMenuVisible"
+          @mouseover="showSubMenu"
+          @mouseout="hideSubMenu"
+        >
+          <router-link to="word__practice">단어 랭킹</router-link>
+          <router-link to="sentence__practice">문장 랭킹</router-link>
+          <router-link to="paragraph__practice">문단 랭킹</router-link>
+        </div>
+      </li>
+      <li>
+        <span @mouseover="showSubMenu" @mouseout="hideSubMenu">분석</span>
+        <div
+          class="submenu"
+          v-show="isSubMenuVisible"
+          @mouseover="showSubMenu"
+          @mouseout="hideSubMenu"
+        >
+          <router-link to="word__practice">평균 속도</router-link>
+          <router-link to="sentence__practice">오타 분석</router-link>
+          <router-link to="paragraph__practice">개인 기록</router-link>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+export default {
+  name: "MenuVue",
+  data() {
+    return {
+      isSubMenuVisible: false,
+    };
+  },
+  methods: {
+    showSubMenu() {
+      this.isSubMenuVisible = true;
+    },
+    hideSubMenu() {
+      this.isSubMenuVisible = false;
+    },
+  },
+};
+</script>
+
+<style>
+li {
+  list-style: none;
+  position: relative;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: black;
+  margin: 13px 0 13px 0;
+  padding: 0px;
+}
+
+.menu {
+  text-align: center;
+  font-size: 23px;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu ul li div {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 350px;
+  top: 100%; /* 서브메뉴가 메인 메뉴 아래에 나타나도록 설정 */
+  left: 50%; /* 가운데 정렬을 위해 왼쪽 위치 조정 */
+  transform: translateX(-50%); /* 가운데 정렬을 위해 왼쪽으로 이동 */
+  background-color: #cce7ee;
+}
+</style>

@@ -1,4 +1,9 @@
 <template>
+  <div class="menu">
+    <div class="menu__links">
+      <Menu />
+    </div>
+  </div>
   <div class="content-container">
     <div class="typingText-container">
       {{ typingText }}
@@ -22,9 +27,13 @@
 </template>
 
 <script>
+import Menu from "./components/Menu.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    Menu,
+  },
   data() {
     return {
       inputText: "",
@@ -136,11 +145,26 @@ p {
   margin: 0px;
 }
 
+.menu {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  top: 5%;
+  z-index: 2;
+}
+
+.menu__links {
+  position: absolute;
+  width: 600px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .content-container {
   position: absolute;
   width: 1000px;
   height: 800px;
-  top: 5%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -156,6 +180,7 @@ p {
   transform: translateX(-50%);
   font-size: 25px;
   margin-bottom: 10px;
+  z-index: 1;
 }
 
 textarea {
