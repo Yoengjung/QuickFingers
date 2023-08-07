@@ -98,9 +98,9 @@ a {
   flex-direction: column;
   justify-content: space-around;
   width: 350px;
-  top: 100%; /* 서브메뉴가 메인 메뉴 아래에 나타나도록 설정 */
-  left: 50%; /* 가운데 정렬을 위해 왼쪽 위치 조정 */
-  transform: translateX(-50%); /* 가운데 정렬을 위해 왼쪽으로 이동 */
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #cce7ee;
 }
 </style>
