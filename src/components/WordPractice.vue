@@ -4,17 +4,43 @@
       <Menu />
     </div>
   </div>
+  <div class="content-container">
+    <div class="typingText-container">
+      {{ typeingText }}
+    </div>
+    <div class="inputText-container">
+      <input type="text" v-model="inputText" />
+    </div>
+    <div>
+      <TimerAndResult :inputText="this.inputText" />
+    </div>
+    <button id="restartBtn" @click="restartBtnClick()">restart</button>
+  </div>
 </template>
 <script>
 import Menu from "./Menu.vue";
+import TimerAndResult from "./TimerAndResult.vue";
 
 export default {
   name: "WordPractice",
   data() {
-    return {};
+    return {
+      inputText: "",
+      selectTypeingIndex: "",
+      typeingText: "",
+      typingTextContent: ["able", "aboard", "abort", "about", "above"],
+      isTimeUp: false,
+    };
   },
   components: {
     Menu,
+    TimerAndResult,
+  },
+  created() {
+    this.selectTypeingIndex = Math.floor(
+      Math.random() * this.typingTextContent.length
+    );
+    this.typeingText = this.typingTextContent[this.selectTypeingIndex];
   },
 };
 </script>
@@ -44,5 +70,20 @@ p {
   width: 600px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.typingText-container {
+  text-align: center;
+  position: relative;
+  width: 200px;
+  border: 2px solid #1b2420;
+  border-radius: 7px;
+  padding: 20px;
+  background-color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  margin-bottom: 10px;
+  z-index: 1;
 }
 </style>

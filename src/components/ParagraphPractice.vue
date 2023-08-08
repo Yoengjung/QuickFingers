@@ -15,12 +15,8 @@
         @input="handleInput"
       />
     </div>
-    <div class="result-container">
-      <p class="item" v-if="timer > 0">카운트 다운: {{ timer }}</p>
-      <p class="item" v-else>타이머 종료</p>
-      <p class="item">mistake : {{ mistakeNum }}</p>
-      <p class="item">WPM : {{ wpm }}</p>
-      <p class="item">CPM : {{ cpm }}</p>
+    <div>
+      <TimerAndResult />
     </div>
     <button id="restartBtn" @click="restartBtnClick()">restart</button>
   </div>
@@ -28,17 +24,17 @@
 
 <script>
 import Menu from "./Menu.vue";
+import TimerAndResult from "./TimerAndResult.vue";
 
 export default {
   name: "ParagraphPractice",
   components: {
     Menu,
+    TimerAndResult,
   },
   data() {
     return {
       inputText: "",
-      timer: 60,
-      interval: null,
       typingText: "",
       randomNum: 0,
       isTimeUp: false,
@@ -67,9 +63,6 @@ export default {
         "A reptant discussion's rest comes with it the thought that the condemned syrup is a wish. The drake of a wallaby becomes a sonant harp. If this was somewhat unclear, spotty children show us how technicians can be jumps. Their honey was, in this moment, an intime direction. A ship is the lion of a hate. They were lost without the croupous jeep that composed their lily. In modern times a butcher of the birth is assumed to be a spiral bean.",
         "Those cowbells are nothing more than elements. This could be, or perhaps before stockings, thoughts were only opinions. A coil of the exclamation is assumed to be a hurtless toy. A board is the cast of a religion. In ancient times the first stinko sailboat is, in its own way, an exchange. Few can name a tutti channel that isn't a footless operation. Extending this logic, an oatmeal is the rooster of a shake. Those step-sons are nothing more than matches.",
       ],
-      mistakeNum: 0,
-      wpm: 0,
-      cpm: 0,
     };
   },
   created() {
@@ -78,53 +71,7 @@ export default {
     );
     this.typingText = this.typingTextContent[this.randomNum];
   },
-  watch: {
-    timer: function (timer) {
-      if (timer <= 0) {
-        this.isTimeUp = true;
-      }
-    },
-  },
-
   methods: {
-    handleInput() {
-      // 키 입력 시마다 기존 타이머를 중지하고 새로운 타이머를 시작합니다.
-      if (this.interval) {
-        this.mistakeCount();
-        this.wpmCala();
-        this.cpmCala();
-        return;
-      }
-
-      // 타이머가 종료될 때까지 1초마다 countdown 값을 감소시킵니다.
-      this.interval = setInterval(() => {
-        if (this.timer > 0) {
-          this.timer--;
-        } else {
-          clearInterval(this.interval);
-        }
-      }, 1000);
-
-      if (this.timer <= 0) {
-        this.isTimeUp = true;
-      }
-    },
-    mistakeCount() {
-      this.mistakeNum = 0;
-      for (let i = 0; i < this.inputText.length; i++) {
-        if (this.inputText[i] != this.typingText[i]) {
-          this.mistakeNum++;
-        }
-      }
-    },
-    wpmCala() {
-      this.wpm = Math.round(
-        ((this.inputText.length - this.mistakeNum) / 5 / (60 - this.timer)) * 60
-      );
-    },
-    cpmCala() {
-      this.cpm = this.inputText.length - this.mistakeNum;
-    },
     restartBtnClick() {
       window.location.reload();
     },

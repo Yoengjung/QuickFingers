@@ -9,9 +9,9 @@
           @mouseover="showSubMenu"
           @mouseout="hideSubMenu"
         >
-          <router-link to="word__practice">단어</router-link>
+          <router-link to="WordPractice">단어</router-link>
           <router-link to="sentence__practice">문장</router-link>
-          <router-link to="paragraph__practice">문단</router-link>
+          <router-link to="ParagraphPractice">문단</router-link>
         </div>
       </li>
       <li>
@@ -22,9 +22,9 @@
           @mouseover="showSubMenu"
           @mouseout="hideSubMenu"
         >
-          <router-link to="word__practice">단어 랭킹</router-link>
-          <router-link to="sentence__practice">문장 랭킹</router-link>
-          <router-link to="paragraph__practice">문단 랭킹</router-link>
+          <router-link to="">단어 랭킹</router-link>
+          <router-link to="">문장 랭킹</router-link>
+          <router-link to="">문단 랭킹</router-link>
         </div>
       </li>
       <li>
@@ -35,9 +35,9 @@
           @mouseover="showSubMenu"
           @mouseout="hideSubMenu"
         >
-          <router-link to="word__practice">평균 속도</router-link>
-          <router-link to="sentence__practice">오타 분석</router-link>
-          <router-link to="paragraph__practice">개인 기록</router-link>
+          <router-link to="">평균 속도</router-link>
+          <router-link to="">오타 분석</router-link>
+          <router-link to="">개인 기록</router-link>
         </div>
       </li>
     </ul>
