@@ -16,7 +16,7 @@
       />
     </div>
     <div>
-      <TimerAndResult />
+      <TimerAndResult :inputText="inputText" />
     </div>
     <button id="restartBtn" @click="restartBtnClick()">restart</button>
   </div>

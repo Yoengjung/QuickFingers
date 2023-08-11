@@ -10,7 +10,7 @@
           @mouseout="hideSubMenu"
         >
           <router-link to="WordPractice">단어</router-link>
-          <router-link to="sentence__practice">문장</router-link>
+          <router-link to="SentencePractice">문장</router-link>
           <router-link to="ParagraphPractice">문단</router-link>
         </div>
       </li>

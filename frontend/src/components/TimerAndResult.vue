@@ -1,6 +1,6 @@
 <template>
   <div class="result-container">
-    <p class="item" v-if="startTimer > 0">카운트 다운: {{ timeCount }}</p>
+    <p class="item" v-if="timeCount > 0">카운트 다운: {{ timeCount }}</p>
     <p class="item" v-else>타이머 종료</p>
     <p class="item">mistake : {{ mistakeNum }}</p>
     <p class="item">WPM : {{ wpm }}</p>
@@ -46,6 +46,7 @@ export default {
         this.mistakeCount();
         this.wpmCala();
         this.cpmCala();
+        this.startTimer();
         return;
       }
 
@@ -63,7 +64,10 @@ export default {
     },
     wpmCala() {
       this.wpm = Math.round(
-        ((this.inputText.length - this.mistakeNum) / 5 / (60 - this.timer)) * 60
+        ((this.inputText.length - this.mistakeNum) /
+          5 /
+          (60 - this.timeCount)) *
+          60
       );
     },
     cpmCala() {
