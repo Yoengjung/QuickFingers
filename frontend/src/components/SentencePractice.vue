@@ -5,6 +5,9 @@
     </div>
   </div>
   <div class="content-container">
+    <div>
+      <RemainTypingCount :selectTypeingIndex="selectTypeingIndex" />
+    </div>
     <div class="sentence-typingText-container">
       {{ typeingText[selectTypeingIndex] }}
     </div>
@@ -25,6 +28,7 @@
 <script>
 import Menu from "./Menu.vue";
 import TimerAndResult from "./TimerAndResult.vue";
+import RemainTypingCount from "./RemainTypingCount.vue";
 import axios from "axios";
 
 export default {
@@ -40,6 +44,7 @@ export default {
   components: {
     Menu,
     TimerAndResult,
+    RemainTypingCount,
   },
   methods: {
     completeBtn() {

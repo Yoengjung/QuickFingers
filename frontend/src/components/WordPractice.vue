@@ -4,10 +4,11 @@
       <Menu />
     </div>
   </div>
-  <div>
-    <RemainTypingCount :selectTypeingIndex="selectTypeingIndex" />
-  </div>
+
   <div class="content-container">
+    <div>
+      <RemainTypingCount :selectTypeingIndex="selectTypeingIndex" />
+    </div>
     <div class="word-typingText-container">
       {{ typeingText[selectTypeingIndex] }}
     </div>

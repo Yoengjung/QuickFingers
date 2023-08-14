@@ -1,7 +1,6 @@
 <template>
   <div class="result-container">
-    <p class="item" v-if="timeCount > 0">카운트 다운: {{ timeCount }}</p>
-    <p class="item" v-else>타이머 종료</p>
+    <p class="item">CountDown : {{ timeCount }}</p>
     <p class="item">mistake : {{ mistakeNum }}</p>
     <p class="item">WPM : {{ wpm }}</p>
     <p class="item">CPM : {{ cpm }}</p>
@@ -13,7 +12,7 @@ export default {
   data() {
     return {
       interval: null,
-      timeCount: 60,
+      timeCount: 0,
       mistakeNum: 0,
       wpm: 0,
       cpm: 0,
@@ -25,55 +24,7 @@ export default {
       required: true,
     },
   },
-  methods: {
-    startTimer() {
-      setInterval(() => {
-        if (this.timeCount > 0) {
-          this.timeCount--;
-        }
-      }, 1000);
-    },
-    mistakeCount() {
-      this.mistakeNum = 0;
-      for (let i = 0; i < this.inputText.length; i++) {
-        if (this.inputText[i] != this.typingText[i]) {
-          this.mistakeNum++;
-        }
-      }
-    },
-    handleInput() {
-      if (this.interval) {
-        this.mistakeCount();
-        this.wpmCala();
-        this.cpmCala();
-        this.startTimer();
-        return;
-      }
-
-      this.interval = setInterval(() => {
-        if (this.timeCount > 0) {
-          this.timeCount--;
-        } else {
-          clearInterval(this.interval);
-        }
-      }, 1000);
-
-      if (this.timeCount <= 0) {
-        this.isTimeUp = true;
-      }
-    },
-    wpmCala() {
-      this.wpm = Math.round(
-        ((this.inputText.length - this.mistakeNum) /
-          5 /
-          (60 - this.timeCount)) *
-          60
-      );
-    },
-    cpmCala() {
-      this.cpm = this.inputText.length - this.mistakeNum;
-    },
-  },
+  methods: {},
 };
 </script>
 <style>
