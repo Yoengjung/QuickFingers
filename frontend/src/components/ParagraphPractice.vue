@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="content-container">
-    <div class="typingText-container">
+    <div class="paragraph-typingText-container">
       {{ typingText }}
     </div>
     <div class="paragraph-inputText-container">
@@ -116,7 +116,7 @@ p {
   transform: translateX(-50%);
 }
 
-.typingText-container {
+.paragraph-typingText-container {
   position: relative;
   width: 800px;
   border: 2px solid #1b2420;
