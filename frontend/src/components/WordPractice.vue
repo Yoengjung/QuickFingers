@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="content-container">
-    <div class="typingText-container">
+    <div class="word-typingText-container">
       {{ typeingText }}
     </div>
     <div class="word-inputText-container">
@@ -72,10 +72,10 @@ p {
   transform: translateX(-50%);
 }
 
-.typingText-container {
+.word-typingText-container {
   text-align: center;
   position: relative;
-  width: 200px;
+  width: 800px;
   border: 2px solid #1b2420;
   border-radius: 7px;
   padding: 20px;
@@ -110,5 +110,6 @@ p {
   transform: translate(-50%, -50%);
   font-size: 25px;
   padding: 3px;
+  text-align: center;
 }
 </style>

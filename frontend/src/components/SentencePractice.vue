@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="content-container">
-    <div class="typingText-container">
+    <div class="sentence-typingText-container">
       {{ typeingText[selectTypeingIndex] }}
     </div>
     <div class="sentence-inputText-container">
@@ -72,6 +72,21 @@ export default {
 <style>
 body {
   box-sizing: border-box;
+}
+
+.sentence-typingText-container {
+  text-align: center;
+  position: relative;
+  width: 800px;
+  border: 2px solid #1b2420;
+  border-radius: 7px;
+  padding: 20px;
+  background-color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  margin-bottom: 10px;
+  z-index: 1;
 }
 
 .sentence-inputText-container {
