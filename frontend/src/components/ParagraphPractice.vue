@@ -8,7 +8,7 @@
     <div class="typingText-container">
       {{ typingText }}
     </div>
-    <div class="inputText-container">
+    <div class="paragraph-inputText-container">
       <textarea
         v-bind:disabled="isTimeUp"
         v-model="inputText"
@@ -138,7 +138,7 @@ textarea {
   resize: none;
 }
 
-.inputText-container {
+.paragraph-inputText-container {
   position: relative;
   width: 800px;
   height: 300px;

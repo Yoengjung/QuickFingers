@@ -8,7 +8,7 @@
     <div class="typingText-container">
       {{ typeingText }}
     </div>
-    <div class="inputText-container">
+    <div class="word-inputText-container">
       <input type="text" v-model="inputText" />
     </div>
     <div>
@@ -85,5 +85,30 @@ p {
   font-size: 25px;
   margin-bottom: 10px;
   z-index: 1;
+}
+
+.word-inputText-container {
+  position: relative;
+  width: 800px;
+  height: 30px;
+  border: 2px solid #1b2420;
+  border-radius: 7px;
+  padding: 20px;
+  background-color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.word-inputText-container input {
+  position: absolute;
+  width: 80%;
+  height: 35px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  padding: 3px;
 }
 </style>
