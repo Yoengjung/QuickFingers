@@ -43,10 +43,6 @@ export default {
   },
   methods: {
     completeBtn() {
-      console.log(this.inputText);
-      console.log(this.typeingText[this.selectTypeingIndex]);
-      console.log(this.inputText == this.typeingText[this.selectTypeingIndex]);
-
       if (this.inputText === this.typeingText[this.selectTypeingIndex]) {
         console.log(this.inputText);
         this.selectTypeingIndex++;

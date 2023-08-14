@@ -4,12 +4,15 @@
       <Menu />
     </div>
   </div>
+  <div>
+    <RemainTypingCount :selectTypeingIndex="selectTypeingIndex" />
+  </div>
   <div class="content-container">
     <div class="word-typingText-container">
-      {{ typeingText }}
+      {{ typeingText[selectTypeingIndex] }}
     </div>
     <div class="word-inputText-container">
-      <input type="text" v-model="inputText" />
+      <input type="text" v-model="inputText" @keyup.enter="completeBtn()" />
     </div>
     <div>
       <TimerAndResult :inputText="this.inputText" />
@@ -20,27 +23,40 @@
 <script>
 import Menu from "./Menu.vue";
 import TimerAndResult from "./TimerAndResult.vue";
+import RemainTypingCount from "./RemainTypingCount.vue";
+import axios from "axios";
 
 export default {
   name: "WordPractice",
   data() {
     return {
       inputText: "",
-      selectTypeingIndex: "",
       typeingText: "",
-      typingTextContent: ["able", "aboard", "abort", "about", "above"],
       isTimeUp: false,
+      selectTypeingIndex: 0,
     };
   },
   components: {
     Menu,
     TimerAndResult,
+    RemainTypingCount,
   },
-  created() {
-    this.selectTypeingIndex = Math.floor(
-      Math.random() * this.typingTextContent.length
-    );
-    this.typeingText = this.typingTextContent[this.selectTypeingIndex];
+  methods: {
+    completeBtn() {
+      if (this.inputText === this.typeingText[this.selectTypeingIndex]) {
+        console.log(this.inputText);
+        this.selectTypeingIndex++;
+        this.inputText = "";
+      }
+      if (this.selectTypeingIndex == this.typeingText.length) {
+        this.isTimeUp = true;
+      }
+    },
+  },
+  mounted() {
+    axios.get("http://localhost:3000" + "/getWordData").then((res) => {
+      this.typeingText = res.data;
+    });
   },
 };
 </script>
