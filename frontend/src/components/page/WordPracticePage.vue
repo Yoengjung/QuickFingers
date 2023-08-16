@@ -45,7 +45,7 @@ export default {
     },
   },
   mounted() {
-    axios.get("http://localhost:3000" + "/getWordData").then((res) => {
+    axios.get("http://localhost:3000" + "/WordData").then((res) => {
       this.typingText = res.data;
     });
   },

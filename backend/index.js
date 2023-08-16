@@ -14,7 +14,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/getSentenceData", (req, res) => {
+app.get("/SentenceData", (req, res) => {
   const data = fs.readFileSync("./sentenceFile.json");
   const dataJson = JSON.parse(data);
   const dataArr = [];
@@ -28,7 +28,7 @@ app.get("/getSentenceData", (req, res) => {
   res.send(dataArr);
 });
 
-app.get("/getParagraphData", (req, res) => {
+app.get("/ParagraphData", (req, res) => {
   const data = fs.readFileSync("./paragraphFile.json");
   const dataJson = JSON.parse(data);
   const dataLen = Object.keys(dataJson).length;
@@ -38,7 +38,7 @@ app.get("/getParagraphData", (req, res) => {
   res.send(selectedData);
 });
 
-app.get("/getWordData", (req, res) => {
+app.get("/WordData", (req, res) => {
   const data = fs.readFileSync("./wordFile.json");
   const dataJson = JSON.parse(data);
   const dataLen = Object.keys(dataJson).length;

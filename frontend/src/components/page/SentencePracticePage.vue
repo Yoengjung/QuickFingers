@@ -55,7 +55,7 @@ export default {
     },
   },
   mounted() {
-    axios.get("http://localhost:3000" + "/getSentenceData").then((res) => {
+    axios.get("http://localhost:3000" + "/SentenceData").then((res) => {
       this.typingText = res.data;
     });
   },

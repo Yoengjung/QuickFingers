@@ -33,7 +33,7 @@ export default {
     };
   },
   created() {
-    axios.get("http://localhost:3000" + "/getParagraphData").then((res) => {
+    axios.get("http://localhost:3000" + "/ParagraphData").then((res) => {
       this.typingText = res.data;
     });
   },
