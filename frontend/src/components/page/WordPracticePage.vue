@@ -64,21 +64,6 @@ p {
   margin: 0px;
 }
 
-.menu {
-  position: absolute;
-  width: 100%;
-  height: 30px;
-  top: 5%;
-  z-index: 2;
-}
-
-.menu__links {
-  position: absolute;
-  width: 600px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .word-typingText-container {
   text-align: center;
   position: relative;

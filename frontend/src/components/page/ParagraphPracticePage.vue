@@ -48,13 +48,6 @@ export default {
 </script>
 
 <style>
-body {
-  margin: 0px;
-  padding: 0px;
-  background-color: rgb(143, 209, 209);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
-
 p {
   padding: 0px;
   margin: 0px;
