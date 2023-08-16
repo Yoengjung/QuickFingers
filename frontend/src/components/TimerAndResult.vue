@@ -15,15 +15,39 @@ export default {
       mistakeNum: 0,
       wpm: 0,
       cpm: 0,
+      intervalTime: null,
     };
   },
   props: {
-    inputText: {
-      type: String,
+    propTypingIndex: {
+      type: Number,
       required: true,
     },
+    typingStartCheck: {
+      type: Boolean,
+    },
   },
-  methods: {},
+  methods: {
+    countUp() {
+      this.timeCount++;
+    },
+    countStop() {
+      clearInterval(this.intervalTime);
+    },
+  },
+  mounted() {},
+  watch: {
+    typingStartCheck: function () {
+      if (this.typingStartCheck) {
+        this.intervalTime = setInterval(this.countUp, 1000);
+      }
+    },
+    propTypingIndex: function () {
+      if (this.propTypingIndex == 30) {
+        clearInterval(this.intervalTime);
+      }
+    },
+  },
 };
 </script>
 <style>

@@ -1,18 +1,17 @@
 <template>
   <Menu />
   <div class="content-container">
-    <div>
-      <RemainTypingCount :selectTypingIndex="selectTypingIndex" />
-    </div>
+    <RemainTypingCount :selectTypingIndex="selectTypingIndex" />
     <div class="word-typingText-container">
       {{ typingText[selectTypingIndex] }}
     </div>
     <div class="word-inputText-container">
       <input type="text" v-model="inputText" @keyup.enter="completeBtn()" />
     </div>
-    <div>
-      <TimerAndResult :inputText="this.inputText" />
-    </div>
+    <TimerAndResult
+      :propTypingIndex="this.selectTypingIndex"
+      :typingStartCheck="this.typingStartCheck"
+    />
     <button id="restartBtn" @click="restartBtnClick()">restart</button>
   </div>
 </template>
@@ -29,6 +28,7 @@ export default {
       inputText: "",
       typingText: "",
       selectTypingIndex: 0,
+      typingStartCheck: false,
     };
   },
   components: {
@@ -49,21 +49,16 @@ export default {
       this.typingText = res.data;
     });
   },
+  watch: {
+    inputText() {
+      if (this.inputText.length != 0 && this.typingStartCheck == false) {
+        this.typingStartCheck = true;
+      }
+    },
+  },
 };
 </script>
 <style>
-body {
-  margin: 0px;
-  padding: 0px;
-  background-color: rgb(143, 209, 209);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
-
-p {
-  padding: 0px;
-  margin: 0px;
-}
-
 .word-typingText-container {
   text-align: center;
   position: relative;

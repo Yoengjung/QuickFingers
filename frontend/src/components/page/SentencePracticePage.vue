@@ -1,9 +1,7 @@
 <template>
   <Menu />
   <div class="content-container">
-    <div>
-      <RemainTypingCount :selectTypingIndex="selectTypingIndex" />
-    </div>
+    <RemainTypingCount :selectTypingIndex="selectTypingIndex" />
     <div class="sentence-typingText-container">
       {{ typingText[selectTypingIndex] }}
     </div>
@@ -15,9 +13,10 @@
         @keyup.enter="completeBtn()"
       />
     </div>
-    <div>
-      <TimerAndResult :inputText="inputText" />
-    </div>
+    <TimerAndResult
+      :propTypingIndex="this.selectTypingIndex"
+      :typingStartCheck="this.typingStartCheck"
+    />
     <button id="restartBtn" @click="restartBtnClick()">restart</button>
   </div>
 </template>
@@ -34,6 +33,7 @@ export default {
       inputText: "",
       selectTypingIndex: 0,
       typingText: [],
+      typingStartCheck: false,
     };
   },
   components: {
@@ -58,6 +58,13 @@ export default {
     axios.get(process.env.VUE_APP_BACKEND_URL + "/SentenceData").then((res) => {
       this.typingText = res.data;
     });
+  },
+  watch: {
+    inputText() {
+      if (this.inputText.length != 0 && this.typingStartCheck == false) {
+        this.typingStartCheck = true;
+      }
+    },
   },
 };
 </script>
