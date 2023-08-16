@@ -1,19 +1,11 @@
 <template>
-  <div class="menu">
-    <div class="menu__links">
-      <Menu />
-    </div>
-  </div>
+  <Menu />
   <div class="content-container">
     <div class="paragraph-typingText-container">
       {{ typingText }}
     </div>
     <div class="paragraph-inputText-container">
-      <textarea
-        v-bind:disabled="isTimeUp"
-        v-model="inputText"
-        @input="handleInput"
-      />
+      <textarea v-model="inputText" @input="handleInput" />
     </div>
     <div>
       <TimerAndResult :inputText="inputText" />
@@ -64,21 +56,6 @@ body {
 p {
   padding: 0px;
   margin: 0px;
-}
-
-.menu {
-  position: absolute;
-  width: 100%;
-  height: 30px;
-  top: 5%;
-  z-index: 2;
-}
-
-.menu__links {
-  position: absolute;
-  width: 600px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .content-container {

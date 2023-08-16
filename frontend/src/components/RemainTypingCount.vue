@@ -1,13 +1,13 @@
 <template>
   <div class="remain-count-container">
-    <p>{{ selectTypeingIndex }} / 30</p>
+    <p>{{ selectTypingIndex }} / 30</p>
   </div>
 </template>
 <script>
 export default {
   name: "RemainTypingCount",
   props: {
-    selectTypeingIndex: {
+    selectTypingIndex: {
       type: Number,
       required: true,
     },

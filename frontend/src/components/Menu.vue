@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <div class="menu-container">
     <ul>
       <li>
         <span @mouseover="showSubMenu" @mouseout="hideSubMenu">타자연습</span>
@@ -63,16 +63,6 @@ export default {
 </script>
 
 <style>
-li {
-  list-style: none;
-  position: relative;
-}
-
-ul {
-  margin: 0px;
-  padding: 0px;
-}
-
 a {
   text-decoration: none;
   display: block;
@@ -81,23 +71,33 @@ a {
   padding: 0px;
 }
 
-.menu {
+.menu-container {
+  position: absolute;
   text-align: center;
   font-size: 23px;
+  width: 600px;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
-.menu ul {
+.menu-container ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.menu ul li div {
+.menu-container ul li {
+  position: relative;
+  display: flex;
+}
+
+.menu-container ul li div {
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  width: 350px;
+  width: 300px;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);

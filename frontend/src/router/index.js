@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "../components/Home.vue";
+import Home from "../components/page/HomePage.vue";
 import WordPractice from "../components/WordPractice.vue";
 import ParagraphPractice from "../components/ParagraphPractice.vue";
 import SentencePractice from "../components/SentencePractice.vue";

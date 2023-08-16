@@ -1,16 +1,11 @@
 <template>
-  <div class="menu">
-    <div class="menu__links">
-      <Menu />
-    </div>
-  </div>
-
+  <Menu />
   <div class="content-container">
     <div>
-      <RemainTypingCount :selectTypeingIndex="selectTypeingIndex" />
+      <RemainTypingCount :selectTypingIndex="selectTypingIndex" />
     </div>
     <div class="word-typingText-container">
-      {{ typeingText[selectTypeingIndex] }}
+      {{ typingText[selectTypingIndex] }}
     </div>
     <div class="word-inputText-container">
       <input type="text" v-model="inputText" @keyup.enter="completeBtn()" />
@@ -32,9 +27,8 @@ export default {
   data() {
     return {
       inputText: "",
-      typeingText: "",
-      isTimeUp: false,
-      selectTypeingIndex: 0,
+      typingText: "",
+      selectTypingIndex: 0,
     };
   },
   components: {
@@ -44,19 +38,15 @@ export default {
   },
   methods: {
     completeBtn() {
-      if (this.inputText === this.typeingText[this.selectTypeingIndex]) {
-        console.log(this.inputText);
-        this.selectTypeingIndex++;
+      if (this.inputText === this.typingText[this.selectTypingIndex]) {
+        this.selectTypingIndex++;
         this.inputText = "";
-      }
-      if (this.selectTypeingIndex == this.typeingText.length) {
-        this.isTimeUp = true;
       }
     },
   },
   mounted() {
     axios.get("http://localhost:3000" + "/getWordData").then((res) => {
-      this.typeingText = res.data;
+      this.typingText = res.data;
     });
   },
 };

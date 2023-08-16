@@ -1,15 +1,11 @@
 <template>
-  <div class="menu">
-    <div class="menu__links">
-      <Menu />
-    </div>
-  </div>
+  <Menu />
   <div class="content-container">
     <div>
-      <RemainTypingCount :selectTypeingIndex="selectTypeingIndex" />
+      <RemainTypingCount :selectTypingIndex="selectTypingIndex" />
     </div>
     <div class="sentence-typingText-container">
-      {{ typeingText[selectTypeingIndex] }}
+      {{ typingText[selectTypingIndex] }}
     </div>
     <div class="sentence-inputText-container">
       <input
@@ -36,9 +32,8 @@ export default {
   data() {
     return {
       inputText: "",
-      selectTypeingIndex: 0,
-      typeingText: [],
-      isTimeUp: false,
+      selectTypingIndex: 0,
+      typingText: [],
     };
   },
   components: {
@@ -48,33 +43,25 @@ export default {
   },
   methods: {
     completeBtn() {
-      if (this.inputText === this.typeingText[this.selectTypeingIndex]) {
+      if (this.inputText === this.typingText[this.selectTypingIndex]) {
         console.log(this.inputText);
-        this.selectTypeingIndex++;
+        this.selectTypingIndex++;
         this.inputText = "";
-      }
-      if (this.selectTypeingIndex == this.typeingText.length) {
-        this.isTimeUp = true;
       }
     },
     restartBtnClick() {
       this.inputText = "";
-      this.selectTypeingIndex = 0;
-      this.isTimeUp = false;
+      this.selectTypingIndex = 0;
     },
   },
   mounted() {
     axios.get("http://localhost:3000" + "/getSentenceData").then((res) => {
-      this.typeingText = res.data;
+      this.typingText = res.data;
     });
   },
 };
 </script>
 <style>
-body {
-  box-sizing: border-box;
-}
-
 .sentence-typingText-container {
   text-align: center;
   position: relative;

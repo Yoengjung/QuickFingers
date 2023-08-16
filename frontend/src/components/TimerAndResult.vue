@@ -11,7 +11,6 @@ export default {
   name: "TimerAndResult",
   data() {
     return {
-      interval: null,
       timeCount: 0,
       mistakeNum: 0,
       wpm: 0,
