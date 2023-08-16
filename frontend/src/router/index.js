@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "../components/page/HomePage.vue";
-import WordPractice from "../components/WordPractice.vue";
-import ParagraphPractice from "../components/ParagraphPractice.vue";
-import SentencePractice from "../components/SentencePractice.vue";
+import WordPracticePage from "../components/page/WordPracticePage.vue";
+import ParagraphPracticePage from "../components/page/ParagraphPracticePage.vue";
+import SentencePracticePage from "../components/page/SentencePracticePage.vue";
 
 const routes = [
   {
@@ -15,17 +15,17 @@ const routes = [
   {
     path: "/WordPractice",
     name: "WordPractice",
-    component: WordPractice,
+    component: WordPracticePage,
   },
   {
     path: "/ParagraphPractice",
     name: "ParagraphPractice",
-    component: ParagraphPractice,
+    component: ParagraphPracticePage,
   },
   {
     path: "/SentencePractice",
     name: "SentencePractice",
-    component: SentencePractice,
+    component: SentencePracticePage,
   },
 ];
 

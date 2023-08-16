@@ -17,13 +17,13 @@
   </div>
 </template>
 <script>
-import Menu from "./Menu.vue";
-import TimerAndResult from "./TimerAndResult.vue";
-import RemainTypingCount from "./RemainTypingCount.vue";
+import Menu from "../Menu.vue";
+import TimerAndResult from "../TimerAndResult.vue";
+import RemainTypingCount from "../RemainTypingCount.vue";
 import axios from "axios";
 
 export default {
-  name: "WordPractice",
+  name: "WordPracticePage",
   data() {
     return {
       inputText: "",

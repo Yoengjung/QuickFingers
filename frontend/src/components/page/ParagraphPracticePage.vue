@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import Menu from "./Menu.vue";
-import TimerAndResult from "./TimerAndResult.vue";
+import Menu from "../Menu.vue";
+import TimerAndResult from "../TimerAndResult.vue";
 import axios from "axios";
 
 export default {
