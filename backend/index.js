@@ -3,7 +3,7 @@ const fs = require("fs");
 const cors = require("cors");
 const app = express();
 
-const PROT = 3000;
+const PORT = 3000;
 
 const corsOptions = {
   origin: "http://localhost:8081",
@@ -52,6 +52,6 @@ app.get("/WordData", (req, res) => {
   res.send(selectedData);
 });
 
-app.listen(PROT, () => {
-  console.log(`Server running on port ${PROT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
