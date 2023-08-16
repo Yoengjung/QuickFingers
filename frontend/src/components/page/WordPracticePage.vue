@@ -45,7 +45,7 @@ export default {
     },
   },
   mounted() {
-    axios.get("http://localhost:3000" + "/WordData").then((res) => {
+    axios.get(process.env.VUE_APP_BACKEND_URL + "/WordData").then((res) => {
       this.typingText = res.data;
     });
   },

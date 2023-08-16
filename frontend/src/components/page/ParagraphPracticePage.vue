@@ -33,9 +33,11 @@ export default {
     };
   },
   created() {
-    axios.get("http://localhost:3000" + "/ParagraphData").then((res) => {
-      this.typingText = res.data;
-    });
+    axios
+      .get(process.env.VUE_APP_BACKEND_URL + "/ParagraphData")
+      .then((res) => {
+        this.typingText = res.data;
+      });
   },
   methods: {
     restartBtnClick() {
