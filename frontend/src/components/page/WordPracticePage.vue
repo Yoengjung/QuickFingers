@@ -6,11 +6,18 @@
       {{ typingText[selectTypingIndex] }}
     </div>
     <div class="word-inputText-container">
-      <input type="text" v-model="inputText" @keyup.enter="completeBtn()" />
+      <input
+        type="text"
+        v-model="inputText"
+        @keyup.enter="completeBtn"
+        @keyup="calcTypingLen"
+        @keydown="backspaceKeydown"
+      />
     </div>
     <TimerAndResult
       :propTypingIndex="this.selectTypingIndex"
       :typingStartCheck="this.typingStartCheck"
+      :typingTotelLength="this.typingTotelLength"
     />
     <button id="restartBtn" @click="restartBtnClick()">restart</button>
   </div>
@@ -29,6 +36,7 @@ export default {
       typingText: "",
       selectTypingIndex: 0,
       typingStartCheck: false,
+      typingTotelLength: 0,
     };
   },
   components: {
@@ -41,6 +49,19 @@ export default {
       if (this.inputText === this.typingText[this.selectTypingIndex]) {
         this.selectTypingIndex++;
         this.inputText = "";
+      }
+    },
+    calcTypingLen(e) {
+      if (e.key == "Backspace") {
+        if (this.typingTotelLength != 0) this.typingTotelLength--;
+      } else {
+        this.typingTotelLength++;
+      }
+    },
+    backspaceKeydown(e) {
+      if (e.key == "Backspace") {
+        if (this.typingTotelLength != 0 || this.inputText != 0)
+          this.typingTotelLength--;
       }
     },
   },

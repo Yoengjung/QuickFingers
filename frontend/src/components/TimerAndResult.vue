@@ -16,6 +16,7 @@ export default {
       wpm: 0,
       cpm: 0,
       intervalTime: null,
+      typingMaxLenth: 30,
     };
   },
   props: {
@@ -26,13 +27,21 @@ export default {
     typingStartCheck: {
       type: Boolean,
     },
+    typingTotelLength: {
+      type: Number,
+    },
   },
   methods: {
     countUp() {
       this.timeCount++;
+      this.calculateCPM();
     },
     countStop() {
       clearInterval(this.intervalTime);
+    },
+    calculateCPM() {
+      const timeInMinutes = this.timeCount / 60;
+      this.cpm = Math.floor(Math.floor(this.typingTotelLength) / timeInMinutes);
     },
   },
   mounted() {},
@@ -43,7 +52,7 @@ export default {
       }
     },
     propTypingIndex: function () {
-      if (this.propTypingIndex == 30) {
+      if (this.propTypingIndex == this.typingMaxLenth) {
         clearInterval(this.intervalTime);
       }
     },
